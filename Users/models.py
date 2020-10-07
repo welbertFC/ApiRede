@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class User(models.Model):
     email = models.EmailField()
     senha = models.CharField(max_length=32)
@@ -7,6 +8,7 @@ class User(models.Model):
 
     class Meta:
         abstract = True
+
 
 class Usuario(User):
     nome = models.CharField(max_length=150)
