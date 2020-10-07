@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Eventos(models.Model):
     data = models.DateField()
     data_criacao = models.DateTimeField(auto_now_add=True)
@@ -9,6 +10,7 @@ class Eventos(models.Model):
     descricao = models.TextField()
     vagas = models.IntegerField()
     valor = models.CharField(max_length=100)
+    url = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.titulo
