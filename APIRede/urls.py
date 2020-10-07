@@ -15,7 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+from django.conf.urls import include
+
+# import views Set
+from Users.api.viewsets import UsuarioViewSet
+from Eventos.api.viewsets import EventoViewSet
+from Inscricao.api.viewsets import InscricaoViewSet
+
+
+routers = routers.DefaultRouter()
+routers.register(r'usuario', UsuarioViewSet)
+routers.register(r'evento', EventoViewSet)
+routers.register(r'inscricao', InscricaoViewSet)
 
 urlpatterns = [
+    path('api/v1/', include(routers.urls)),
     path('admin/', admin.site.urls),
 ]
